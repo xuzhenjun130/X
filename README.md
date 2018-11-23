@@ -43,6 +43,10 @@
 |   +--- error.php           #错误视图 
 ```
 
+# 安装
+
+`composer require sherman/x`
+
 # 例子及说明文档
 
 [https://github.com/xuzhenjun130/X-framework-app](https://github.com/xuzhenjun130/X-framework-app)
