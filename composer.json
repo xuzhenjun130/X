@@ -1,0 +1,27 @@
+{
+    "name": "sherman/x",
+	"type": "library",
+    "description": "X is a PHP micro frameworks",
+    "keywords": ["php framework","micro"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "zhenjun.xu",
+            "email": "412530435@qq.com"
+        }
+    ],
+	"require": {
+        "php": ">=5.5.0",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "X\\":""
+        },
+        "files":[
+            "X/DebugFunction.php"
+        ]
+    }
+}
