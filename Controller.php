@@ -30,7 +30,6 @@ class Controller
      * @param $fileName
      * @param array $data
      * @return string
-     * @throws \ReflectionException
      */
     public function render($fileName, $data = [])
     {
