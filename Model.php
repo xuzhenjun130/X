@@ -38,7 +38,7 @@ class Model implements \ArrayAccess
     }
 
     public static function select(array $fileds){
-        \X::app()->db->select($fileds);
+        X::app()->db->select($fileds);
         return new static();
     }
 
@@ -50,7 +50,7 @@ class Model implements \ArrayAccess
      */
     public static function findById($id)
     {
-        $data = \X::app()->db->table(self::tableName())->findById($id, self::$pk);
+        $data = X::app()->db->table(self::tableName())->findById($id, self::$pk);
         if(!$data){
             return false;
         }
@@ -68,7 +68,7 @@ class Model implements \ArrayAccess
      */
     public static function findAll($param = null, $order = "", $limit = "",$asArray=false)
     {
-        $data = \X::app()->db->table(self::tableName())->findAll($param, $order, $limit);
+        $data = X::app()->db->table(self::tableName())->findAll($param, $order, $limit);
         if (!$asArray && !empty($data)) {
             foreach ($data as $k => $v) {
                 $data[$k] = new static($v,false);
@@ -85,7 +85,7 @@ class Model implements \ArrayAccess
      */
     public static function find($param = null)
     {
-        $data = \X::app()->db->table(self::tableName())->find($param);
+        $data = X::app()->db->table(self::tableName())->find($param);
         if (empty($data)) return false;
         return new static($data,false);
     }
@@ -115,7 +115,7 @@ class Model implements \ArrayAccess
         if (isset($this->_modelData[$name])) {
             return $this->_modelData[$name];
         } else {
-            $fields = \X::app()->db->getFields(self::tableName());
+            $fields = X::app()->db->getFields(self::tableName());
             foreach ($fields as $v) {
                 if ($v == $name) return null;
             }
@@ -146,7 +146,7 @@ class Model implements \ArrayAccess
             }
         }
         if(!static::beforeSave()) return false;
-        $db = \X::app()->db->table(self::tableName());
+        $db = X::app()->db->table(self::tableName());
         $tableFields = $db->getFields(self::tableName());
         foreach($this->_modelData as $k=>$v){
             //删除数据库没有的字段
@@ -173,7 +173,7 @@ class Model implements \ArrayAccess
      */
     public static function total($param = null)
     {
-        return \X::app()->db->table(self::tableName())->total($param);
+        return X::app()->db->table(self::tableName())->total($param);
     }
 
     /**
@@ -182,7 +182,7 @@ class Model implements \ArrayAccess
      * @throws \Exception
      */
     public function delete(){
-        return \X::app()->db->table(self::tableName())->delete([self::$pk=>$this->{self::$pk}]);
+        return X::app()->db->table(self::tableName())->delete([self::$pk=>$this->{self::$pk}]);
     }
 
     /**
@@ -253,7 +253,7 @@ class Model implements \ArrayAccess
         }
         if( class_exists($validateMethod)){
             $config['class'] = $validateMethod;
-            $validate = \X::createComponents($config,false);
+            $validate = X::createComponents($config,false);
             $rs = $validate->run($this,$field);
         }else{
             $rs = $this->{$validateMethod}();
@@ -316,7 +316,7 @@ class Model implements \ArrayAccess
         if (isset($this->_modelData[$offset])) {
             return true;
         } else {
-            $fields = \X::app()->db->getFields(self::tableName());
+            $fields = X::app()->db->getFields(self::tableName());
             foreach ($fields as $v) {
                 if ($v == $offset) return null;
             }
@@ -339,7 +339,7 @@ class Model implements \ArrayAccess
         if (isset($this->_modelData[$offset])) {
             return $this->_modelData[$offset];
         } else {
-            $fields = \X::app()->db->getFields(self::tableName());
+            $fields = X::app()->db->getFields(self::tableName());
             foreach ($fields as $v) {
                 if ($v == $offset) return null;
             }
@@ -365,7 +365,7 @@ class Model implements \ArrayAccess
         if (isset($this->_modelData[$offset])) {
              $this->_modelData[$offset] = $value;
         } else {
-            $fields = \X::app()->db->getFields(self::tableName());
+            $fields = X::app()->db->getFields(self::tableName());
             foreach ($fields as $v) {
                 if ($v == $offset){
                     $this->_modelData[$offset] = $value;

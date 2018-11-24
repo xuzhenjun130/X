@@ -17,7 +17,7 @@ class CliTool
      * @param $tableName
      */
     public function createModel($tableName){
-        $tableInfo = \X::app()->db->getFields($tableName,false);
+        $tableInfo = X::app()->db->getFields($tableName,false);
         $property = '';
         $attributes = [];
         foreach ($tableInfo as $v){
@@ -54,7 +54,7 @@ class CliTool
         }
         $attributes = var_export($attributes,true);
         $className = ucfirst($tableName);
-        $file = \X::app()->basePath.'/models/'.$className.'.php';
+        $file = X::app()->basePath.'/models/'.$className.'.php';
         $content = <<<EOF
 <?php
 namespace app\\models;
@@ -62,7 +62,7 @@ namespace app\\models;
  * Class $className
  $property
  */
- class $className extends \\X\\Model
+ class $className extends X\\Model
  {
     public function attributes(){
         return $attributes;

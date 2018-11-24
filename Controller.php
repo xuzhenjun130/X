@@ -11,7 +11,7 @@ namespace X;
 class Controller
 {
     /**
-     * @var \X  框架对象
+     * @var X  框架对象
      */
     public $app;
 
@@ -67,7 +67,7 @@ class Controller
         unset($data);
         if (substr($viewFile, -9) == 'blade.php') {
             //blade 需要解析模板
-            $tmp = \X::app()->runtimePath . '/views/' . md5($viewFile) . '.php';
+            $tmp = X::app()->runtimePath . '/views/' . md5($viewFile) . '.php';
             //当编译文件不存在，或者模板文件修改过，则生成编译文件
             if (!file_exists($tmp) || filemtime($tmp) < filemtime($viewFile) || X_DEBUG) {
                 //引入模板解析类

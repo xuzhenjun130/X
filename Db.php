@@ -111,7 +111,7 @@ class Db extends Component
             $stmt->setFetchMode(\PDO::FETCH_ASSOC);
             return $stmt;
         } catch (\PDOException $e) {
-            \X::app()->exception($e, $this->sql);
+            X::app()->exception($e, $this->sql);
         }
         return false;
     }

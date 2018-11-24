@@ -33,7 +33,7 @@ class Application extends Component
             if(empty($tableName)){
                 echo "only accept -m ,'-m tableName' to create model";
             }else{
-                \X::app()->cliTool->createModel($tableName['m']);
+                X::app()->cliTool->createModel($tableName['m']);
             }
         }
     }

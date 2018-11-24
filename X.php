@@ -78,7 +78,7 @@ class X extends \X\Component
 
     /**
      * 致命错误处理
-     * @throws Exception
+     * @throws \Exception
      */
     public function fatal()
     {
@@ -100,7 +100,7 @@ class X extends \X\Component
     /**
      * @param \Exception $exception
      * @param  string $custom 自定义错误信息
-     * @throws Exception
+     * @throws \Exception
      */
     public function exception($exception,$custom='')
     {
@@ -126,7 +126,7 @@ class X extends \X\Component
      * @param $message
      * @param $file
      * @param $line
-     * @throws Exception
+     * @throws \Exception
      */
     public function error($code, $message, $file, $line)
     {
@@ -172,6 +172,7 @@ class X extends \X\Component
     /**
      * 启动程序
      * @param  X $app
+     * @throws \Exception
      */
     public function run()
     {
