@@ -1,4 +1,5 @@
 <?php
+namespace X;
 /**
  * X框架主文件
  * @author zhenjun_xu <412530435@qq.com>
@@ -171,12 +172,11 @@ class X extends \X\Component
     /**
      * 启动程序
      * @param  X $app
-     * @throws \Exception
      */
-    public function run($app)
+    public function run()
     {
         session_start();
-        self::$_app = $app;
+        self::$_app = $this;
         if (empty($this->_runtimePath)) {
             $this->_runtimePath = $this->_basePath . '/runtime';
         }

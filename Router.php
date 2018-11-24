@@ -131,7 +131,7 @@ class Router
         if ($found_route == false) {
             if (!self::$error_callback) {
                 header($_SERVER['SERVER_PROTOCOL'] . " 404 Not Found");
-                echo '404';
+                //echo '404';
             } else {
                 return call_user_func(self::$error_callback, ['message' => '404 Not Found']);
             }

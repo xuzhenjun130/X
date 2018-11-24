@@ -17,7 +17,7 @@ class Controller
 
     public function __construct()
     {
-        $this->app = \X::app();
+        $this->app = X::app();
     }
 
     /**

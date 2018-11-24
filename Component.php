@@ -25,10 +25,11 @@ class Component
         if (method_exists($this, $getter)) {
             return $this->$getter();
         } else {
-            if(get_class($this)=="X"){
+            $className = get_class($this);
+            if(strcasecmp($className,'X\X') == 0 || strcasecmp($className,'X') == 0 ){
                 return $this->getComponent($name);
             }
-            throw new \Exception('class:' . get_class($this) . '找不到[' . $name . ']属性');
+            throw new \Exception('class:' . $className. '找不到[' . $name . ']属性');
         }
     }
 

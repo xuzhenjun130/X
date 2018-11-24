@@ -21,7 +21,7 @@ class Application extends Component
     public function runController()
     {
         if(PHP_SAPI!='cli'){
-            $router = \X::app()->router;
+            $router = X::app()->router;
             $rs = $router::dispatch();
             if(is_array($rs) || is_object($rs)){
                 echo json_encode($rs,JSON_UNESCAPED_UNICODE);
