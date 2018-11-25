@@ -30,7 +30,7 @@ class TemplateParser
     }
     //解析普通变量
     private function parVar() {
-        $_patten = '/\{\{\$([\w]+)\}\}/';
+        $_patten = '/\{\{\$(.+)\}\}/';
         if (preg_match($_patten,$this->_tpl)) {
             $this->_tpl = preg_replace($_patten,"<?php echo htmlentities(\$$1) ;?>",$this->_tpl);
         }

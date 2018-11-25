@@ -32,11 +32,13 @@ class Pagination
     /**
      * @var string 当前 li class
      */
-    public $activeClass = "cur";
+    public $activeClass = "active";
+
+    public $ulClass = "pagination";
     /**
      * @var string li class
      */
-    public $itemClass = "item";
+    public $itemClass = "";
     public $firstClass = "first";
     public $lastClass = "last";
     public $preClass = "pre";
@@ -96,7 +98,7 @@ class Pagination
         /**
          * 分页html
          */
-        $html = '<ul>';
+        $html = '<ul class="'.$this->ulClass.'">';
         //first
         if($this->showFirstLast){
             $html .= "<li class='{$this->itemClass} {$this->firstClass}'><a href='{$this->url}&p=1'>$this->first</a></li>";

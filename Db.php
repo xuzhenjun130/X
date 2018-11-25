@@ -17,6 +17,10 @@ class Db extends Component
     private $pdo;
     //sql 语句
     protected $sql;
+    /**
+     * @var array 所有sql语句, X_DEBUG = true 才记录
+     */
+    public $queries = [];
     //存放实例化本类对象
     private static $instance;
 
@@ -105,6 +109,13 @@ class Db extends Component
     public function execute($parameters = [])
     {
         $this->_fields = "*"; //重置 select
+        if(X_DEBUG){
+            $sql = $this->sql;
+            foreach ($parameters as $k=>$v){
+                $sql = str_replace(':'.$k,$v,$sql);
+            }
+            $this->queries[] = $sql;
+        }
         try {
             $stmt = $this->pdo->prepare($this->sql);
             $stmt->execute($parameters);

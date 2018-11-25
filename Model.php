@@ -46,7 +46,6 @@ class Model implements \ArrayAccess
      * 查找单条数据
      * @param $id
      * @return mixed
-     * @throws \Exception
      */
     public static function findById($id)
     {
@@ -64,7 +63,6 @@ class Model implements \ArrayAccess
      * @param string $limit
      * @param bool $asArray 是否返回数组，而不是数组对象
      * @return array
-     * @throws \Exception
      */
     public static function findAll($param = null, $order = "", $limit = "",$asArray=false)
     {
@@ -167,7 +165,6 @@ class Model implements \ArrayAccess
     /**
      * @param null $param
      * @return int
-     * @throws \Exception
      */
     public static function total($param = null)
     {
@@ -177,7 +174,6 @@ class Model implements \ArrayAccess
     /**
      * 删除数据
      * @return int
-     * @throws \Exception
      */
     public function delete(){
         return X::app()->db->table(self::tableName())->delete([self::$pk=>$this->{self::$pk}]);
@@ -235,7 +231,6 @@ class Model implements \ArrayAccess
      * 执行验证
      * @param $rules
      * @param $field
-     * @throws \Exception
      */
     private function _validate($rules,$field){
         //已经有错误的字段则不再执行下一个相同字段验证
@@ -305,7 +300,6 @@ class Model implements \ArrayAccess
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
      * @since 5.0.0
-     * @throws \Exception
      */
     public function offsetExists($offset)
     {
@@ -329,7 +323,6 @@ class Model implements \ArrayAccess
      * </p>
      * @return mixed Can return all value types.
      * @since 5.0.0
-     * @throws \Exception
      */
     public function offsetGet($offset)
     {
@@ -355,7 +348,6 @@ class Model implements \ArrayAccess
      * </p>
      * @return void
      * @since 5.0.0
-     * @throws \Exception
      */
     public function offsetSet($offset, $value)
     {
