@@ -81,7 +81,6 @@ class Model implements \ArrayAccess
      * 查找单条数据
      * @param null $param
      * @return static|false
-     * @throws \Exception
      */
     public static function find($param = null)
     {
@@ -134,7 +133,6 @@ class Model implements \ArrayAccess
      * @param bool $validate 是否验证
      * @param array $validateFields 需要验证的字段
      * @return int
-     * @throws \Exception
      */
     public function save($new = false, $validate=true,$validateFields=[])
     {
@@ -206,7 +204,6 @@ class Model implements \ArrayAccess
      * 验证
      * @param array $fields 需要验证的字段，默认全部
      * @return bool
-     * @throws \Exception
      */
     public function validate($fields = [])
     {
